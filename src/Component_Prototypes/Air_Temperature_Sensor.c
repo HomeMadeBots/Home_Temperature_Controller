@@ -7,13 +7,13 @@
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-DS18B20_Ambient_Air_Temperature_Sensor_Var Air_Temperature_Sensor_Var = {
+DS18B20_Sensor_Var Air_Temperature_Sensor_Var = {
     /* T_Ambient_Air_Temperature Air_Temperature */
     0,
     /* uint8_t Last_Performed_Action */
     DS18B20_ACTION_READ_SCRATCHPAD
 };
-const DS18B20_Ambient_Air_Temperature_Sensor Air_Temperature_Sensor = {
+const DS18B20_Sensor Air_Temperature_Sensor = {
     
     /* Variable attributes (ref) */
     &Air_Temperature_Sensor_Var,

@@ -49,7 +49,7 @@ void HTC__Task_500ms( void )
 
 void HTC__Task_1000ms( void )
 {
-    DS18B20__Cyclic( &Air_Temperature_Sensor );
+    DS18B20__Measure_Temperature( &Air_Temperature_Sensor );
     Boiler_Manager__Pilot_Boiler();
     Display_Mgr__Update_All_Displays();
 }

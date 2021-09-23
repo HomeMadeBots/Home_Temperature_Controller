@@ -26,7 +26,7 @@
 
 
 /* Inner objects */
-#include "Class_Turn_On_Off_Delay.h"
+#include "Turn_On_Off_Delay.h"
 
 
 /*============================================================================*/
@@ -50,7 +50,7 @@ typedef struct {
     const HTC_Mode* Mode;
 
     /* Inner objects */
-    const Class_Turn_On_Off_Delay* Anti_Bounce_Delay;
+    const Turn_On_Off_Delay* Anti_Bounce_Delay;
 
 } Boiler_Manager_Class;
 

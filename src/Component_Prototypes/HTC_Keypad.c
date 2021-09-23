@@ -12,7 +12,7 @@
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-const Five_Buttons_Keypad HTC_Keypad = {
+const Five_Buttons_Keypad_Sensor HTC_Keypad = {
     
     /* Required interfaces */
     /* Analogic_Input* Analog_Pin */

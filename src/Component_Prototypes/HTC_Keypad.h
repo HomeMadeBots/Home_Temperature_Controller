@@ -1,13 +1,13 @@
 #ifndef HTC_KEYPAD_H
 #define HTC_KEYPAD_H
 
-#include "Five_Buttons_Keypad.h"
+#include "Five_Buttons_Keypad_Sensor.h"
 
 
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-const Five_Buttons_Keypad HTC_Keypad;
+const Five_Buttons_Keypad_Sensor HTC_Keypad;
 
 
 /*============================================================================*/

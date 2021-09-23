@@ -13,13 +13,13 @@
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-Class_Triggered_Timer_Var Backlight_Timer_Var = 
+Triggered_Timer_Var Backlight_Timer_Var = 
 {
     /* uint32_t Counter */
     30 /* 15s */
 };
 
-Class_Triggered_Timer Backlight_Timer =
+Triggered_Timer Backlight_Timer =
 {
     /* Variable attributes */
     &Backlight_Timer_Var,

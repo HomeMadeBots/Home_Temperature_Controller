@@ -57,11 +57,11 @@ void Boiler_Manager__Stop_Boiler( void )
 /*----------------------------------------------------------------------------*/
 void Boiler_Manager__Pilot_Boiler( void )
 {
-    Class_Delay* delay_ref = NULL;
+    Delay* delay_ref = NULL;
 
     /* Tick the timer of the delay */
-    delay_ref = (Class_Delay*)(Boiler_Manager.Anti_Bounce_Delay);
-    Class_Triggered_Timer__Tick( delay_ref->My_Timer );
+    delay_ref = (Delay*)(Boiler_Manager.Anti_Bounce_Delay);
+    Triggered_Timer__Tick( delay_ref->My_Timer );
 
     /* Check which temperature (HIGH or LOW) shall be targeted depending on 
     clock and mode. */
@@ -249,14 +249,14 @@ static void Regulate_Temperature( void )
 
     if( mesured_temperature>=My_Targeted_Temperature )
     {
-        Delay__Reset( (Class_Delay*)Boiler_Manager.Anti_Bounce_Delay );
+        Delay__Reset( (Delay*)Boiler_Manager.Anti_Bounce_Delay );
     }
     else if( mesured_temperature<My_Targeted_Temperature )
     {
-        Delay__Set( (Class_Delay*)Boiler_Manager.Anti_Bounce_Delay );
+        Delay__Set( (Delay*)Boiler_Manager.Anti_Bounce_Delay );
     }
 
-    if( true==Delay__Get( (Class_Delay*)Boiler_Manager.Anti_Bounce_Delay ) )
+    if( true==Delay__Get( (Delay*)Boiler_Manager.Anti_Bounce_Delay ) )
     {
         Relay_Cmd__Close_Circuit();
     }

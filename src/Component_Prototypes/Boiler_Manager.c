@@ -20,20 +20,20 @@
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-static const Class_Turn_On_Off_Delay Anti_Bounce_Delay;
+static const Turn_On_Off_Delay Anti_Bounce_Delay;
 
 static void Delay_Timer__Time_Is_Up( void )
 {
-    Delay__Timer_Is_Up( (Class_Delay*)&Anti_Bounce_Delay );
+    Delay__Timer_Is_Up( (Delay*)&Anti_Bounce_Delay );
 }
 
-static Class_Triggered_Timer_Var Delay_Timer_Var = 
+static Triggered_Timer_Var Delay_Timer_Var = 
 {
     /* uint32_t Counter */
     0
 };
 
-const Class_Triggered_Timer Delay_Timer =
+const Triggered_Timer Delay_Timer =
 {
     /* Variable attributes */
     &Delay_Timer_Var,
@@ -47,7 +47,7 @@ const Class_Triggered_Timer Delay_Timer =
     1000
 };
 
-static Class_Turn_On_Off_Delay_Var Anti_Bounce_Delay_Var =
+static Turn_On_Off_Delay_Var Anti_Bounce_Delay_Var =
 {
     /* Inheritance */
     {
@@ -59,12 +59,12 @@ static Class_Turn_On_Off_Delay_Var Anti_Bounce_Delay_Var =
     false
 };
 
-static const Class_Turn_On_Off_Delay Anti_Bounce_Delay =
+static const Turn_On_Off_Delay Anti_Bounce_Delay =
 {
     /* Inheritance */
     {
         /* Variable attributes */
-        (Class_Delay_Var*)&Anti_Bounce_Delay_Var,
+        (Delay_Var*)&Anti_Bounce_Delay_Var,
 
         /* Virtual operations */
         &Turn_On_Off_Delay_Operations,

@@ -1,7 +1,6 @@
 #include "Display_Manager_Class.h"
 
 #include <stdio.h> /* sprintf */
-#include "Class_Triggered_Timer.h"
 
 
 extern const Display_Manager_Class Display_Manager;
@@ -96,7 +95,7 @@ void Display_Mgr__Update_All_Displays( void )
     T_Ambient_Air_Temperature mesured_temp = 0;
     E_HTC_Mode current_operating_mode = NORMAL_MODE;
 
-    Class_Triggered_Timer__Tick( Display_Manager.Backlight_Timer );
+    Triggered_Timer__Tick( Display_Manager.Backlight_Timer );
 
     /* Get data */
     Clock__Get_Date( 
@@ -245,7 +244,7 @@ void Display_Mgr__Keypad_Used( void )
     LCD_Cmd__Show_Text();
 
     /* Restart timer for 15s */
-    Class_Triggered_Timer__Start( Display_Manager.Backlight_Timer, 15000 );
+    Triggered_Timer__Start( Display_Manager.Backlight_Timer, 15000 );
 }
 
 

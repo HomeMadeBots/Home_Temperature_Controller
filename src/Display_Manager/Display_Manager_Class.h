@@ -20,7 +20,7 @@
 
 
 /* Associated objects */
-#include "Class_Triggered_Timer.h"
+#include "Triggered_Timer.h"
 
 
 /*============================================================================*/
@@ -45,7 +45,7 @@ typedef struct {
     const Target_Home_Temperatures* Target_Temperatures;
     
     /* Associated objects */
-    const Class_Triggered_Timer* Backlight_Timer;
+    const Triggered_Timer* Backlight_Timer;
 
 } Display_Manager_Class;
 

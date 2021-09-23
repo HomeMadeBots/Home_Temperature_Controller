@@ -1,13 +1,13 @@
 #ifndef AIR_TEMPERATURE_SENSOR_H
 #define AIR_TEMPERATURE_SENSOR_H
 
-#include "DS18B20_Ambient_Air_Temperature_Sensor.h"
+#include "DS18B20_Sensor.h"
 
 
 /*============================================================================*/
 /* Component_Prototype */
 /*============================================================================*/
-const DS18B20_Ambient_Air_Temperature_Sensor Air_Temperature_Sensor;
+const DS18B20_Sensor Air_Temperature_Sensor;
 
 
 /*============================================================================*/
