@@ -1,0 +1,104 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+object Display_Manager
+
+object Mode_Manager
+object Setting_Manager
+object Boiler_Manager
+
+object HTC_Clock
+
+object HTC_Keypad {
+  No_Button_Threshold = 1000
+  Select_Button_Threshold = 650
+  Left_Button_Threshold = 450
+  Down_Button_Threshold = 250
+  Up_Button_Threshold = 50
+}
+object Boiler_Relay_Actuator {
+  Relay_Configuration = MONOSTABLE_RELAY_NORMALLY_OPEN
+  }
+object Air_Temperature_Sensor {
+  T_One_Wire_Device_Address = [ 0x28 0xEE 0xF4 0x79 0xA2 0x0 0x3 0xFD ]
+}
+object HTC_LCD {
+  Font_Configuration = LCD_CONFIG_FONT_5x8
+  Number_Lines_Configuration = LCD_CONFIG_NB_LINES_2
+  Number_Colomns_Configuration = LCD_CONFIG_NB_COLUMNS_16
+}
+
+object Keypad_Pin {
+  Arduino_Pin_Id = PIN_A0
+}
+object Boiler_Relay_Pin {
+  Arduino_Pin_Id = 13
+}
+object One_Wire {
+  Pin_Address = &PIND
+  Bit_Index = 6
+}
+object DO_Pin_LCD_Backlight {
+  Arduino_Pin_Id = 10
+}
+object DO_Pin_LCD_Data_4 {
+  Arduino_Pin_Id = 4
+}
+object DO_Pin_LCD_Data_5 {
+  Arduino_Pin_Id = 5
+}
+object DO_Pin_LCD_Data_6 {
+  Arduino_Pin_Id = 6
+}
+object DO_Pin_LCD_Data_7 {
+  Arduino_Pin_Id = 7
+}
+object DO_Pin_LCD_Enable {
+  Arduino_Pin_Id = 9
+}
+object DO_Pin_LCD_Register_Select {
+  Arduino_Pin_Id = 8
+}
+
+Display_Manager -d-> Mode_Manager : HTC_Mode
+Display_Manager -d-> HTC_Keypad : Any_Button_Pressed
+Display_Manager -d-> Setting_Manager : HTC_Setting_Mode
+Display_Manager -d-> Boiler_Manager : Target_Home_Temperatures
+Display_Manager -d-> HTC_LCD : LCD_Commands + LCD_Special_Character_Config
+Display_Manager -d-> Air_Temperature_Sensor : Ambiant_Air_Temperature
+Display_Manager -d-> HTC_Clock : Clock_Data
+
+Mode_Manager -d-> HTC_Keypad : Mode_Button_Pressed
+note on link :  Mode change button is the Select button
+
+Setting_Manager -d-> HTC_Keypad : Increase_Setting_Button_Pressed\lDecrease_Setting_Button_Pressed\lNext_Setting_Button_Pressed\lPrevious_Setting_Button_Pressed
+note on link
+Increase setting button is Up button,
+Decrease is Down,
+Prev is Left,
+Next is Right.
+end note
+Setting_Manager -d-> HTC_Clock : Clock_Setting
+Setting_Manager -d-> Boiler_Manager : Target_Home_Temperature_Setting
+
+Boiler_Manager -d-> Mode_Manager : HTC_Mode
+Boiler_Manager -d-> HTC_Clock : Clock_Data
+Boiler_Manager -d-> Boiler_Relay_Actuator : Relay_Actuation_Requests
+Boiler_Manager -d-> Air_Temperature_Sensor : Ambiant_Air_Temperature
+
+HTC_Keypad -d-> Keypad_Pin  : Analogic_Input
+
+Boiler_Relay_Actuator -d-> Boiler_Relay_Pin : Discrete_Output
+
+Air_Temperature_Sensor -d-> One_Wire : One_Wire_Protocole
+
+HTC_LCD -d-> DO_Pin_LCD_Backlight : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Data_4 : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Data_5 : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Data_6 : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Data_7 : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Enable : Discrete_Output
+HTC_LCD -d-> DO_Pin_LCD_Register_Select : Discrete_Output
+
+@enduml
