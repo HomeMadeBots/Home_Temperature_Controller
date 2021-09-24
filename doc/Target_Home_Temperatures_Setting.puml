@@ -1,0 +1,15 @@
+@startuml
+
+interface Target_Home_Temperatures_Setting <<Client_Server_Interface>>
+{
+  Gathers operation allowing to set the temperatures
+  (High and Low) that the Boiler_Manager shall
+  target.
+  --
+  + Increase_Low_Temperature()
+  + Decrease_Low_Temperature()
+  + Increase_High_Temperature()
+  + Decrease_High_Temperature()
+}
+
+@enduml

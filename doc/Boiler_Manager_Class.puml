@@ -1,0 +1,13 @@
+@startuml
+
+class Boiler_Manager_Class <<Component_Type>>
+{
+  Singleton Component_Type managing the boiler
+  activation/desactivation for the Home Temperature
+  Controller system.
+  --
+  + Stop_Boiler()
+  + Pilot_Boiler()
+}
+
+@enduml

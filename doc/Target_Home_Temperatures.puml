@@ -1,0 +1,12 @@
+@startuml
+
+interface Target_Home_Temperatures <<Client_Server_Interface>>
+{
+  Gathers operations allowing to access the temperatures (High and
+  Low) targeted by the Boiler_Manager.
+  --
+  + Get_High_Temperature( OUT temperature:T_Ambient_Air_Temperature )
+  + Get_Low_Temperature( OUT temperature:T_Ambient_Air_Temperature )
+}
+
+@enduml

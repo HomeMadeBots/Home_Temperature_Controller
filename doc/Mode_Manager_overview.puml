@@ -1,0 +1,17 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/E_HTC_Mode.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/HTC_Mode.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/Mode_Manager_Class.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Button_Events/main/doc/Button_Pressed.puml
+
+
+E_HTC_Mode <.. HTC_Mode : use
+
+HTC_Mode <|..# "Operating_Mode" Mode_Manager_Class
+
+Mode_Manager_Class "Mode_Button_Pressed" #..> Button_Pressed
+
+@enduml

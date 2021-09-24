@@ -1,0 +1,15 @@
+@startuml
+
+class Mode_Manager_Class <<Component_Type>>
+{
+  Singleton Component_Type that manage the 
+  operating mode of the Home Temperature
+  Controller system.
+  The operationg mode of the HTC is modified
+  each time the event //Mode_Button_Pressed//
+  is received.
+  The operating mode is modified following
+  the cycle defined by E_HTC_Mode.
+}
+
+@enduml

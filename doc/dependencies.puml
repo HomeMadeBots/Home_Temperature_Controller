@@ -1,0 +1,56 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+allowmixing
+
+package Home_Temperature_Controller
+{
+  package Boiler_Manager
+  package Display_Manager
+  package Mode_Manager
+  package Setting_Manager
+}
+
+package LCD_HD44780_Actuator
+package DS18B20_Ambient_Air_Temperature_Sensor
+package Arduino_Pins
+package ATmega_One_Wire
+package Five_Buttons_Keypad
+
+package Time_Measurement
+package Button_Events
+package Electrical_Relay
+package Physical_Quantities_Interfaces
+package LCD_Interfaces
+package Delays
+package Timers
+
+LCD_HD44780_Actuator <.. Home_Temperature_Controller
+DS18B20_Ambient_Air_Temperature_Sensor <.. Home_Temperature_Controller
+Arduino_Pins <.. Home_Temperature_Controller
+ATmega_One_Wire <.. Home_Temperature_Controller
+Five_Buttons_Keypad <.. Home_Temperature_Controller
+
+Display_Manager ..> Boiler_Manager
+Display_Manager ..> Mode_Manager
+Display_Manager ..> Setting_Manager
+Boiler_Manager .> Mode_Manager
+Setting_Manager ..> Boiler_Manager
+
+Boiler_Manager ..> Time_Measurement
+Display_Manager ..> Time_Measurement
+
+Mode_Manager ..> Button_Events
+Setting_Manager ..> Button_Events
+
+Boiler_Manager ..> Electrical_Relay
+Boiler_Manager ..> Delays
+
+Display_Manager ..> Physical_Quantities_Interfaces
+Boiler_Manager ..> Physical_Quantities_Interfaces
+
+Display_Manager ..> LCD_Interfaces
+Display_Manager ..> Timers
+
+@enduml

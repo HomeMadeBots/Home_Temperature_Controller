@@ -1,0 +1,44 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+allowmixing
+
+package Home_Temperature_Controller
+{
+  class Home_Temperature_Controller <<Root_Software_Composition>>
+  
+  package Boiler_Manager
+  {
+    class Boiler_Manager_Class <<Component_Type>>
+    interface Target_Home_Temperatures <<Client_Server_Interface>>
+    interface Target_Home_Temperatures_Setting <<Client_Server_Interface>>
+  }
+  
+  package Mode_Manager
+  {
+    class E_HTC_Mode <<Enumerated_Type>>
+    interface HTC_Mode <<Client_Server_Interface>>
+    class Mode_Manager_Class <<Component_Type>>
+  }
+  
+  package Setting_Manager
+  {
+    class E_Setting_Mode <<Enumerated_Type>>
+    interface HTC_Setting_Mode <<Client_Server_Interface>>
+    class Setting_Manager_Class <<Component_Type>>
+  }
+  
+  package Display_Manager
+  {
+    class Display_Manager_Class <<Component_Type>>
+  }
+  
+}
+
+Home_Temperature_Controller .down[hidden].> Boiler_Manager
+Boiler_Manager .down[hidden].> Mode_Manager
+Mode_Manager .down[hidden].> Setting_Manager
+Setting_Manager .down[hidden].> Display_Manager
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+interface HTC_Mode <<Client_Server_Interface>>
+{
+  Defines an operation allowing to access the
+  operating mode of the Home Temperature
+  Controller system.
+  --
+  + Get_Operating_Mode( OUT mode:E_HTC_Mode)
+}
+
+@enduml

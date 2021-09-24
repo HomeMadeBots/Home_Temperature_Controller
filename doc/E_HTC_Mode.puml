@@ -1,0 +1,15 @@
+@startuml
+
+class E_HTC_Mode <<Enumerated_Type>>
+{
+  Allows to model a data representing the
+  operating mode of the Home Temperature
+  Controller system.
+  --
+  NORMAL_MODE
+  HIGH_MODE
+  LOW_MODE
+  HOMEDAY_MODE
+}
+
+@enduml

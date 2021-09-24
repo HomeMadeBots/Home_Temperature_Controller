@@ -1,0 +1,26 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/Target_Home_Temperatures.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/Target_Home_Temperatures_Setting.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/Boiler_Manager_Class.puml
+
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Physical_Quantities_Interfaces/main/doc/Ambient_Air_Temperature.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Relay_Actuator/main/doc/Relay_Actuation_Requests.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/HTC_Mode.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Time_Measurement/main/doc/Clock_Data.puml
+
+Target_Home_Temperatures <|..# "Temperatures" Boiler_Manager_Class
+
+Target_Home_Temperatures_Setting <|..# "Temperatures_Setting" Boiler_Manager_Class
+
+Boiler_Manager_Class "Mesured_Temperature" #..> Ambient_Air_Temperature
+
+Boiler_Manager_Class "Relay_Cmd" #..> Relay_Actuation_Requests
+
+Boiler_Manager_Class "Mode" #..> HTC_Mode
+
+Boiler_Manager_Class "Clock" #..> Clock_Data
+
+@enduml
