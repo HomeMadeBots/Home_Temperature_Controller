@@ -1,0 +1,24 @@
+@startuml
+
+!includeurl https://gist.githubusercontent.com/Arnaud-Bonneuil/c317a7a30bed7d64e2b5b1f558ac00cf/raw/sober.puml
+
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Home_Temperature_Controller/main/doc/Display_Manager_Class.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Five_Buttons_Keypad/main/doc/Any_Button_Pressed.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Time_Measurement/main/doc/Clock_Data.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/HTC_Setting_Mode.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/LCD_Interfaces/main/doc/LCD_Commands.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/LCD_Interfaces/main/doc/LCD_Special_Character_Config.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots/Physical_Quantities_Interfaces/main/doc/Ambient_Air_Temperature.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/HTC_Mode.puml
+!includeurl https://raw.githubusercontent.com/HomeMadeBots//Home_Temperature_Controller/main/doc/Target_Home_Temperatures.puml
+
+Any_Button_Pressed <..# "Keypad_Used" Display_Manager_Class
+Clock_Data <..# "Clock" Display_Manager_Class
+HTC_Setting_Mode <..# "Setting_Mode" Display_Manager_Class
+LCD_Commands <..# "LCD_Cmd" Display_Manager_Class
+Display_Manager_Class "LCD_Config" #..> LCD_Special_Character_Config
+Display_Manager_Class "Mesured_Temperature" #..> Ambient_Air_Temperature
+Display_Manager_Class "Operating_Mode" #..> HTC_Mode
+Display_Manager_Class "Target_Temperatures" #..> Target_Home_Temperatures
+
+@enduml

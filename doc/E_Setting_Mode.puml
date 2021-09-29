@@ -1,0 +1,17 @@
+@startuml
+
+class E_Setting_Mode <<Enumerated_Type>>
+{
+  Allows to model a data representing the
+  setting mode of the Home Temperature
+  Controller system.
+  --
+  NO_SETTING
+  DAY_SETTING
+  HOUR_SETTING
+  MINUTE_SETTING
+  LOW_TEMPERATURE_SETTING
+  HIGH_TEMPERATURE_SETTING
+}
+  
+@enduml

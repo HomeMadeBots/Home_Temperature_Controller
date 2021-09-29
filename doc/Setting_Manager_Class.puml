@@ -1,0 +1,15 @@
+@startuml
+
+class Setting_Manager_Class <<Component_Type>>
+{
+  Singleton Component_Type that manage the 
+  setting mode of the Home Temperature
+  Controller system.
+  The setting mode of the HTC is modified
+  each time the event //Next_Setting_Button_Pressed//
+  or //Previous_Setting_Button_Pressed// is received.
+  The setting mode is modified following
+  the (bidirectional) cycle defined by E_Setting_Mode.
+}
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+class Display_Manager_Class <<Component_Type>>
+{
+  Singleton Component_Type managing the
+  displays on the LCD of the Home Temperature
+  Controller system.
+  --
+  + Initialize()
+  + Update_All_Displays()
+}
+
+@enduml

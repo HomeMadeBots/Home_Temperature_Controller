@@ -23,10 +23,17 @@ patterns](https://github.com/HomeMadeBots/C-language-patterns-for-Embedded-Softw
 
 ![Boiler_Manager overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/Home_Temperature_Controller/master/doc/Boiler_Manager_overview.puml)
 
-### Home_Temperature_Controller overview (compostion)
+### Setting_Manager overview
+
+![Setting_Manager overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/Home_Temperature_Controller/master/doc/Setting_Manager_overview.puml)
+
+### Display_Manager overview
+
+![Display_Manager overview](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/Home_Temperature_Controller/master/doc/Display_Manager_overview.puml)
+
+### Home_Temperature_Controller overview (composition)
 
 ![compostion](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/HomeMadeBots/Home_Temperature_Controller/master/doc/HTC_overview.puml)
-
 
 ## Dependencies
 
